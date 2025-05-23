@@ -1,7 +1,7 @@
 FROM tensorflow/serving
 
 # Copy your saved model into the container's model path
-COPY ../saved_models /models/potatoes_model
+COPY saved_models /models/potatoes_model
 
 # Set environment variables for TensorFlow Serving
 ENV MODEL_NAME=potatoes_model
