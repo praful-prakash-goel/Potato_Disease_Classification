@@ -12,13 +12,9 @@ app = FastAPI()
 endpoint = "https://potato-tf-serving.onrender.com/v1/models/potatoes_model/versions/1:predict"
 CLASS_NAMES = ['Early Blight', 'Late Blight', 'Healthy']
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,7 +37,7 @@ async def predict(file: UploadFile = File(...)):
         "instances": img_batch.tolist()
     }
     
-    response = requests.post(endpoint, json=json_data)
+    response = requests.post(endpoint, json=json_data, timeout=10)
     
     if response.status_code != 200:
         return {"error": "TensorFlow Serving returned an error", "details": response.text}
@@ -60,4 +56,4 @@ async def predict(file: UploadFile = File(...)):
     }
     
 if __name__ == '__main__':
-    uvicorn.run(app, host='localhost', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8000)
