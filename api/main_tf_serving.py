@@ -9,7 +9,7 @@ import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 
 app = FastAPI()
-endpoint = "http://localhost:8501/v1/models/potatoes_model/versions/1:predict"
+endpoint = "https://potato-tf-serving.onrender.com/v1/models/potatoes_model/versions/1:predict"
 CLASS_NAMES = ['Early Blight', 'Late Blight', 'Healthy']
 
 origins = [
