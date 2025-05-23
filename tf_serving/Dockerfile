@@ -1,4 +1,4 @@
-FROM tensorflow/serving
+FROM tensorflow/serving:latest
 
 # Copy your saved model into the container's model path
 COPY saved_models /models/potatoes_model
