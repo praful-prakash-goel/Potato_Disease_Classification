@@ -11,5 +11,7 @@
 
 ## Running the API
 ### Using FastAPI
-1. Get inside api folder.
-   ```bash cd api ```
+1. Get inside `api` folder
+
+```bash
+cd api
