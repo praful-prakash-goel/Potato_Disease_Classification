@@ -14,3 +14,4 @@ ENTRYPOINT ["/usr/bin/tensorflow_model_server",
             "--rest_api_port=8501", 
             "--model_name=potatoes_model", 
             "--model_base_path=/models/potatoes_model"]
+
