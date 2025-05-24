@@ -36,9 +36,12 @@ async def predict(file: UploadFile = File(...)):
     json_data = {
         "instances": img_batch.tolist()
     }
+
+    print(json_data)
     
     response = requests.post(endpoint, json=json_data, timeout=10)
-    
+
+    print(response.text)
     if response.status_code != 200:
         return {"error": "TensorFlow Serving returned an error", "details": response.text}
 
